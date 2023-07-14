@@ -1,0 +1,13 @@
+name: workflow A
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  echo-a:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo
+        run: echo WORKFLOW A RUNNING
