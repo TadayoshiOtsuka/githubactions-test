@@ -40,7 +40,7 @@ services:
       - ./backend/database:/var/lib/mysql
 
   migrate:
-    container_name: sw3_mp_migrate
+    container_name: migrate
     build:
       context: .
       dockerfile: ./Dockerfile
