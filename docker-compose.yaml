@@ -54,3 +54,21 @@ services:
         condition: service_healthy
     profiles:
       - migrate
+
+  schemaspy:
+    container_name: schemaspy
+    build:
+      context: .
+      dockerfile: ./docker/schemaspy/Dockerfile
+    volumes:
+      - type: bind
+        source: ./docs/schemaspy
+        target: /output
+      - type: bind
+        source: ./docker/schemaspy/config/schemaspy.properties
+        target: /app/schemaspy.properties
+    depends_on:
+      db:
+        condition: service_healthy
+    profiles:
+      - schemaspy
